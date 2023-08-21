@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            background-color:rgba(250, 149, 118, 0.344);
+        }
+        table{
+            border: 3px solid rgb(247, 86, 37);
+            border-collapse: collapse;
+            width: 500px;
+        }
+        td {
+            border: 2px solid rgb(247, 86, 37);
+            height: 50px;
+            background-color: rgb(250, 149, 118);
+            text-align: center;
+        } 
+        .text{
+            font-size: 20px;
+            color: white;
+            width: 400px;
+        }
+        button{
+            color: white;
+            background-color: red;
+            border: 2px solid white;
+            height: 40px;
+        }
+        #new_item{
+            font-size: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.286);
+            height: 40px;
+            margin-top: 10px;
+            width: 500px;
+        }
+        #add{
+            font-size: 20px;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <table id="list">
+
+    </table>
+    <input type="text" id="new_item" placeholder="I want to do...">
+    <button id="add" onclick="addItem()">+</button>
+    
+    <script>
+        let id = 1;
+        const list = document.querySelector("#list");
+        function addItem(){
+            const text = document.querySelector("#new_item")
+            if(text.value === "") return;
+            list.innerHTML += "<tr class='item " +id+ "' id='"+id+"'>" + "<td class='text' class='" +id+"'>" + text.value + "</td><td>" + "<input class='" +id +"'" + "type='checkbox' value='Done' style='width:40px;height=40px;' onclick='markAsDone()'></td><td> <button class='" +id+"'" +"onclick='removeItem()' style='width:40px;height=40px;'>X</button></td></tr>";
+            text.value = "";
+            id +=1;
+        }
+        function markAsDone(){
+            const isDone = event.target;
+            const id = event.target.className;
+            if(isDone.checked){
+                document.getElementById(id).style = "text-decoration:line-through;";
+            }
+            else{
+                document.getElementById(id).style = "text-decoration:none;";
+            }
+            
+        }
+        function removeItem(){
+            const id = event.target.className;
+            const toRemove = document.getElementById(id);
+            const items = document.getElementsByClassName("item");
+            console.log("To remove", toRemove);
+            let new_list = "";
+            for(let item of items){
+                console.log("Item", item);
+                if(item == toRemove) continue;
+                new_list += item.outerHTML;
+            }
+            document.querySelector("#list").innerHTML = new_list;
+        }
+    </script>
+</body>
+</html>
