@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border: 2px solid rgb(255, 166, 0);
+  /* border-collapse: collapse; */
+}
+th {
+  background-color: rgba(255, 166, 0, 0.595);
+  color: white;
+  font-size: 28px;
+  padding: 4px;
+}
+
+.in_stock {
+  background-color: rgba(0, 128, 0, 0.213);
+}
+
+form {
+  border: 2px solid rgb(0, 140, 255);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 4px;
+}
+table {
+  margin: 20px auto;
+  font-size: 20px;
+  border-radius: 8px;
+}

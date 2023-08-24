@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Vanilla IceCream",
+    "price": "250",
+    "in_stock": true
+  },
+  {
+    "name": "Cow Milk",
+    "price": "28",
+    "in_stock": false
+  },
+  {
+    "name": "Curd",
+    "price": "12",
+    "in_stock": true
+  },
+  {
+    "name": "Jam",
+    "price": "100",
+    "in_stock": true
+  }
+]
