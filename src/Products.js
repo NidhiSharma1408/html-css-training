@@ -25,8 +25,7 @@ const Products = () => {
             price: event.target.price.value,
             in_stock: event.target.in_stock.checked
         };
-        console.log(new_product);
-        setProducts([...products, new_product]);
+        setProducts((oldProducts) => { return [...oldProducts, new_product] }); //updater
     }
     let deleteProduct = (indexToDelete) => {
         const updatedProducts = products.filter((val, index) => { return (index === indexToDelete) ? false : true });
@@ -38,42 +37,60 @@ const Products = () => {
     return (
         <div>
             <h1>Products</h1>
-            <form onSubmit={saveData}>
-                <TextField variant="filled" label="Product Name" type="text" name="name" placeholder="Enter product name" />
-                <br />
-                <TextField variant="filled" label="Price" type="number" name="price" placeholder="Enter product price" />
-                <br />
-                Available: <Checkbox {...label} defaultChecked name="in_stock" />
-                <br />
-                <Button variant="contained" type="submit">Save</Button>
-            </form>
+            <ProductForm saveData={saveData} />
             <Button variant="contained" color="error" onClick={reset}>Delete All</Button>
-            <table>
-                <thead>
+            <ProductList products={products} deleteProduct={deleteProduct} />
+        </div >
+
+    )
+}
+
+const ProductForm = ({ saveData }) => {
+    return (
+        <form onSubmit={saveData}>
+            <TextField variant="filled" label="Product Name" type="text" name="name" placeholder="Enter product name" />
+            <br />
+            <TextField variant="filled" label="Price" type="number" name="price" placeholder="Enter product price" />
+            <br />
+            Available: <Checkbox {...label} defaultChecked name="in_stock" />
+            <br />
+            <Button variant="contained" type="submit">Save</Button>
+        </form>
+    )
+}
+
+const ProductList = ({ products, deleteProduct }) => {
+    return (
+        <table>
+            <thead>
+                <tr>
                     <th>S.No.</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>In-stock</th>
                     <th>Delete</th>
-                </thead>
-                <tbody>
-                    {
-                        products.map((val, index) => {
-                            return (
-                                <tr className={(val.in_stock) ? "in_stock" : ""}>
-                                    <td>{index + 1}</td>
-                                    <td>{val.name}</td>
-                                    <td>{val.price}</td>
-                                    <td>{(val.in_stock) ? "Yes" : "No"}</td>
-                                    <td><Button variant="text" color="error" onClick={() => { deleteProduct(index) }}>Delete</Button></td>
-                                </tr>);
-                        })
-                    }
-                </tbody>
-            </table>
-
-        </div >
-
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    products.map((val, index) => {
+                        return <ProductDetails val={val} index={index} deleteProduct={deleteProduct} />
+                    })
+                }
+            </tbody>
+        </table>
     )
 }
-export default Products;
+
+const ProductDetails = ({ val, index, deleteProduct }) => {
+    return (
+        <tr className={(val.in_stock) ? "in_stock" : ""}>
+            <td>{index + 1}</td>
+            <td>{val.name}</td>
+            <td>{val.price}</td>
+            <td>{(val.in_stock) ? "Yes" : "No"}</td>
+            <td><Button variant="text" color="error" onClick={() => { deleteProduct(index) }}>Delete</Button></td>
+        </tr>
+    )
+}
+export default Products; 
