@@ -1,7 +1,8 @@
 import { useState } from "react";
-
+let i = 0;
 // import { useState } from react;
 function Counter() {
+    console.log("Function called", i++);
     let [count, setCount] = useState(0);
     let [step, setStep] = useState(1);
     function increase() {
@@ -13,9 +14,8 @@ function Counter() {
     function reset() {
         setCount(0);
     }
-    function changeStep() {
-        console.log(step);
-        setStep(document.getElementById("step").value);
+    function changeStep(event) {
+        setStep(parseInt(event.target.value));
     }
     return (
         <div id="assignment">
@@ -26,8 +26,7 @@ function Counter() {
                 <button onClick={increase}>Increase</button>
                 <button onClick={decrease}>Decrease</button>
                 <button onClick={reset}>Reset</button>
-                <input id="step" type="number" placeholder="Step" />
-                <button onClick={changeStep}>Change Step</button>
+                <input id="step" type="number" onChange={changeStep} placeholder="Step" />
             </div>
         </div>
     )
