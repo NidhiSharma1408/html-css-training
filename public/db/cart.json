@@ -1,12 +1,30 @@
 [
   {
     "id": 1,
-    "item": "food",
-    "quantity": 1
+    "name": "Burger",
+    "quantity": 1,
+    "price": 200,
+    "image": "/img/menu-1.jpg"
   },
   {
     "id": 2,
-    "item": "eat",
-    "quantity": 2
+    "name": "Dhokla",
+    "quantity": 2,
+    "price": 200,
+    "image": "/img/menu-2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Ice Cream",
+    "quantity": 1,
+    "price": 20,
+    "image": "/img/menu-3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Chole Bhature",
+    "quantity": 1,
+    "price": 200,
+    "image": "/img/menu-4.jpg"
   }
 ]

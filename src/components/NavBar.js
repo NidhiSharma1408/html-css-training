@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 //Todo: add active class to link
-const NavBar = () => {
+const NavBar = ({ cart }) => {
     return (
         <div className="container-xxl position-relative p-0">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
@@ -17,13 +17,18 @@ const NavBar = () => {
                         <Link to="/about" className="nav-item nav-link">About</Link>
                         <Link to="/service" className="nav-item nav-link">Service</Link>
                         <Link to="/menu" className="nav-item nav-link">Menu</Link>
-                        <Link to="/cart" className="nav-item nav-link">Cart</Link>
                         <Link to="/contact" className="nav-item nav-link">Contact</Link>
+                        <Link to="/cart" className="nav-item nav-link">
+                            <div className="wrapper">
+                                <i className="fa fa-2x text-primary">&#xf07a;</i>
+                                <span class="badge"> {cart} </span>
+                            </div>
+                        </Link>
                     </div>
                     <Link to="/book" className="btn btn-primary py-2 px-4">Book A Table</Link>
-                </div>
-            </nav>
-        </div>
+                </div >
+            </nav >
+        </div >
     );
 }
 export default NavBar;
