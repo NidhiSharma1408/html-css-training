@@ -1,28 +1,67 @@
 const ContactForm = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const data = {
+            name: form.name.value,
+            email: form.email.value,
+            subject: form.subject.value,
+            message: form.message.value
+        }
+        console.log("data to sent to backend: ", data);
+    }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="row g-3">
                 <div className="col-md-6">
                     <div className="form-floating">
-                        <input type="text" className="form-control" id="name" placeholder="Your Name" />
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="name"
+                            name="name"
+                            placeholder="Your Name"
+                            required
+                        />
                         <label htmlFor="name">Your Name</label>
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="form-floating">
-                        <input type="email" className="form-control" id="email" placeholder="Your Email" />
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Your Email"
+                            required
+                        />
                         <label htmlFor="email">Your Email</label>
                     </div>
                 </div>
                 <div className="col-12">
                     <div className="form-floating">
-                        <input type="text" className="form-control" id="subject" placeholder="Subject" />
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="subject"
+                            name="subject"
+                            placeholder="Subject"
+                            required
+                        />
                         <label htmlFor="subject">Subject</label>
                     </div>
                 </div>
                 <div className="col-12">
                     <div className="form-floating">
-                        <textarea className="form-control" placeholder="Leave a message here" id="message" style={{ height: 150 + 'px' }}></textarea>
+                        <textarea
+                            className="form-control"
+                            placeholder="Leave a message here"
+                            id="message"
+                            name="message"
+                            style={{ height: 150 + 'px' }}
+                            required
+                        ></textarea>
                         <label htmlFor="message">Message</label>
                     </div>
                 </div>
