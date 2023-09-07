@@ -1,0 +1,24 @@
+{
+  "bookings": [
+    {
+      "id": 1,
+      "name": "nidhi",
+      "email": "nidhisharmacsit@gmail.com",
+      "datetime": "07/09/2023, 14:26:54",
+      "people": 1,
+      "message": "hi there"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "item": "food",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "item": "eat",
+      "quantity": 2
+    }
+  ]
+}
