@@ -1,152 +1,139 @@
-{
-  "breakfast": [
-    {
-      "name": "Breakfast Chicken Burger",
-      "image": "/img/menu-1.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-2.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-3.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-4.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-5.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-6.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-7.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-8.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    }
-  ],
-  "dinner": [
-    {
-      "name": "Dinner Chicken Burger",
-      "image": "/img/menu-1.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-2.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-3.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-4.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-5.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-6.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-7.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-8.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    }
-  ],
-  "lunch": [
-    {
-      "name": "Lunch Chicken Burger",
-      "image": "/img/menu-1.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-2.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-3.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-4.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-5.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-6.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-7.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    },
-    {
-      "name": "Chicken Burger",
-      "image": "/img/menu-8.jpg",
-      "description": "Ipsum ipsum clita erat amet dolor justo diam",
-      "price": "$115"
-    }
-  ]
-}
+[
+  {
+    "name": "Burger",
+    "image": "/img/menu-1.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "b"
+  },
+  {
+    "name": "Sandwitch",
+    "image": "/img/menu-2.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "b"
+  },
+  {
+    "name": "Chicken Burger",
+    "image": "/img/menu-3.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": false,
+    "type": "b"
+  },
+  {
+    "name": "Chicken Sandwitch",
+    "image": "/img/menu-4.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": false,
+    "type": "b"
+  },
+  {
+    "name": "Chole Bhature",
+    "image": "/img/menu-5.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "l"
+  },
+  {
+    "name": "Rajma Chawal",
+    "image": "/img/menu-6.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "l"
+  },
+  {
+    "name": "Roti curry",
+    "image": "/img/menu-7.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "l"
+  },
+  {
+    "name": "Dal Roti",
+    "image": "/img/menu-8.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "d"
+  },
+  {
+    "name": "Chicken Curry",
+    "image": "/img/menu-1.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": false,
+    "type": "d"
+  },
+
+  {
+    "name": "Veg Burger",
+    "image": "/img/menu-2.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "d"
+  },
+  {
+    "name": "Veg Sandwitch",
+    "image": "/img/menu-3.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "d"
+  },
+  {
+    "name": "Chicken Burger",
+    "image": "/img/menu-4.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": false,
+    "type": "d"
+  },
+  {
+    "name": "Chicken Sandwitch",
+    "image": "/img/menu-5.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": false,
+    "type": "d"
+  },
+  {
+    "name": "Chicken Burger",
+    "image": "/img/menu-6.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": false,
+    "type": "l"
+  },
+  {
+    "name": "Chicken Sandwitch",
+    "image": "/img/menu-7.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": false,
+    "type": "l"
+  },
+  {
+    "name": "Veg Chowmin",
+    "image": "/img/menu-8.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "b"
+  },
+  {
+    "name": "Non-veg Chowmin",
+    "image": "/img/menu-1.jpg",
+    "description": "Ipsum ipsum clita erat amet dolor justo diam",
+    "price": "$115",
+    "veg": true,
+    "type": "b"
+  }
+]

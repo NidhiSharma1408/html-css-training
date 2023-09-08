@@ -1,108 +1,74 @@
 import MenuItem from "../components/MenuItem";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import SearchMenu from "../components/SearchMenu";
+import FilterMenu from "../components/FilterMenu";
+
+let allItems = [];
 const MenuPage = () => {
-    let [allitems, setAllItems] = useState({ "breakfast": [], "dinner": [], "lunch": [] });
-    let [items, setItems] = useState({ "breakfast": [], "dinner": [], "lunch": [] });
+    let [displayItems, setDisplayItems] = useState([]);
+    let [filter, setFilter] = useState("");
     let [search, setSearch] = useState("");
+    let [vegOnly, setVegOnly] = useState(false);
     useEffect(() => {
         axios.get("db/menu.json")
-            .then((res => { setAllItems(res.data); setItems(res.data); }))
+            .then((res => {
+                allItems = res.data;
+                setDisplayItems(res.data);
+            }))
             .catch((err) => console.log(err));
     }, []);
-    const handleSearch = (event) => {
-        event.preventDefault();
-        console.log("searching...", search);
-        console.log(allitems);
-        setItems((i) => {
-            const newItems = { "breakfast": [], "dinner": [], "lunch": [] };
-
-            newItems["breakfast"] = allitems["breakfast"].filter(val => (val.name.toLowerCase().includes(search.toLowerCase())));
-            newItems["lunch"] = allitems["lunch"].filter(val => (val.name.toLowerCase().includes(search.toLowerCase())));
-            newItems["dinner"] = allitems["dinner"].filter(val => (val.name.toLowerCase().includes(search.toLowerCase)));
-
+    useEffect(() => {
+        setDisplayItems(() => {
+            let newItems = [];
+            newItems = allItems.filter(val => {
+                const f = (filter === "" || val.type === filter);
+                const s = (val.name.toLowerCase().includes(search.toLowerCase()));
+                const v = (!vegOnly || val.veg);
+                return f && s && v;
+            });
             console.log(newItems);
             return newItems;
         });
-
+    }, [search, filter, vegOnly])
+    const onSearch = (query) => {
+        console.log("seaching...", query);
+        setSearch(query);
+    }
+    const onFilter = (filter) => {
+        console.log("filtering...", filter);
+        setFilter(filter);
+    }
+    const toggleVeg = () => {
+        setVegOnly(!vegOnly);
     }
     return (
         <div className="container-xxl py-5">
             <div className="container">
+                <SearchMenu onSearch={onSearch} />
+                <div className="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
 
-                <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 className="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
-                    <form className="input-group rounded">
-                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <button onClick={handleSearch} className="input-group-text border-0" id="search-addon">
-                            <i className="fas fa-search" ></i>
-                        </button>
-                    </form>
-                    <div className="mb-5"></div>
-                </div>
-
-                <div className="tab-className text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <ul className="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
-                        <li className="nav-item">
-                            <a className="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
-                                <i className="fa fa-coffee fa-2x text-primary"></i>
-                                <div className="ps-3">
-                                    <small className="text-body">Popular</small>
-                                    <h6 className="mt-n1 mb-0">Breakfast</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
-                                <i className="fa fa-hamburger fa-2x text-primary"></i>
-                                <div className="ps-3">
-                                    <small className="text-body">Special</small>
-                                    <h6 className="mt-n1 mb-0">Lunch</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
-                                <i className="fa fa-utensils fa-2x text-primary"></i>
-                                <div className="ps-3">
-                                    <small className="text-body">Lovely</small>
-                                    <h6 className="mt-n1 mb-0">Dinner</h6>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <div className="tab-content">
-                        <div id="tab-1" className="tab-pane fade show p-0 active">
-                            <div className="row g-4">
-                                {
-                                    items["breakfast"].map((val, id) => {
-                                        return <MenuItem item={val} key={id} />
-                                    })
-                                }
-                            </div>
-                        </div>
-                        <div id="tab-2" className="tab-pane fade show p-0">
-                            <div className="row g-4">
-                                {
-                                    items["lunch"].map((val, id) => {
-                                        return <MenuItem item={val} key={id} />
-                                    })
-                                }
-                            </div>
-                        </div>
-                        <div id="tab-3" className="tab-pane fade show p-0">
-                            <div className="row g-4">
-                                {
-                                    items["dinner"].map((val, id) => {
-                                        return <MenuItem item={val} key={id} />
-                                    })
-                                }
-                            </div>
+                    <FilterMenu filter={filter} onFilter={onFilter} />
+                    <span className="btn btn-primary">
+                        <input onChange={toggleVeg} name="veg-only" type="checkbox" className="form-check-input" id="veg-only" />
+                        <label className="form-check-label" for="veg-only">
+                            Only Veg
+                        </label>
+                    </span>
+                    <div className="content">
+                        <div className="row g-4">
+                            {
+                                displayItems.map((val, id) => {
+                                    return <MenuItem item={val} key={id} />
+                                })
+                            }
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
+
+
     );
 }
 export default MenuPage;
