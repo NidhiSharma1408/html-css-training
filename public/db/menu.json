@@ -1,7 +1,7 @@
 {
   "breakfast": [
     {
-      "name": "Chicken Burger",
+      "name": "Breakfast Chicken Burger",
       "image": "/img/menu-1.jpg",
       "description": "Ipsum ipsum clita erat amet dolor justo diam",
       "price": "$115"
@@ -51,7 +51,7 @@
   ],
   "dinner": [
     {
-      "name": "Chicken Burger",
+      "name": "Dinner Chicken Burger",
       "image": "/img/menu-1.jpg",
       "description": "Ipsum ipsum clita erat amet dolor justo diam",
       "price": "$115"
@@ -101,7 +101,7 @@
   ],
   "lunch": [
     {
-      "name": "Chicken Burger",
+      "name": "Lunch Chicken Burger",
       "image": "/img/menu-1.jpg",
       "description": "Ipsum ipsum clita erat amet dolor justo diam",
       "price": "$115"

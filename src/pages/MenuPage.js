@@ -2,20 +2,45 @@ import MenuItem from "../components/MenuItem";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const MenuPage = () => {
+    let [allitems, setAllItems] = useState({ "breakfast": [], "dinner": [], "lunch": [] });
     let [items, setItems] = useState({ "breakfast": [], "dinner": [], "lunch": [] });
+    let [search, setSearch] = useState("");
     useEffect(() => {
-
         axios.get("db/menu.json")
-            .then((res => { setItems(res.data) }))
+            .then((res => { setAllItems(res.data); setItems(res.data); }))
             .catch((err) => console.log(err));
     }, []);
+    const handleSearch = (event) => {
+        event.preventDefault();
+        console.log("searching...", search);
+        console.log(allitems);
+        setItems((i) => {
+            const newItems = { "breakfast": [], "dinner": [], "lunch": [] };
+
+            newItems["breakfast"] = allitems["breakfast"].filter(val => (val.name.toLowerCase().includes(search.toLowerCase())));
+            newItems["lunch"] = allitems["lunch"].filter(val => (val.name.toLowerCase().includes(search.toLowerCase())));
+            newItems["dinner"] = allitems["dinner"].filter(val => (val.name.toLowerCase().includes(search.toLowerCase)));
+
+            console.log(newItems);
+            return newItems;
+        });
+
+    }
     return (
         <div className="container-xxl py-5">
             <div className="container">
+
                 <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 className="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
-                    <h1 className="mb-5">Most Popular Items</h1>
+                    <form className="input-group rounded">
+                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <button onClick={handleSearch} className="input-group-text border-0" id="search-addon">
+                            <i className="fas fa-search" ></i>
+                        </button>
+                    </form>
+                    <div className="mb-5"></div>
                 </div>
+
                 <div className="tab-className text-center wow fadeInUp" data-wow-delay="0.1s">
                     <ul className="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
                         <li className="nav-item">

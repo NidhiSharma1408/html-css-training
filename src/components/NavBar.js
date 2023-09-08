@@ -21,7 +21,7 @@ const NavBar = ({ cart }) => {
                         <Link to="/cart" className="nav-item nav-link">
                             <div className="wrapper">
                                 <i className="fa fa-2x text-primary">&#xf07a;</i>
-                                <span class="badge"> {cart} </span>
+                                <span className="badge"> {cart} </span>
                             </div>
                         </Link>
                     </div>
