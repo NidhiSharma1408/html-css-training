@@ -1,25 +1,15 @@
 import CartItem from "../components/CartItem";
-import { useState, useEffect } from "react";
-import axios from "axios";
-const CartPage = () => {
-    let [items, setItems] = useState([]);
-    useEffect(() => {
-        axios.get("db/cart.json")
-            .then(res => {
-                console.log(res);
-                setItems(res.data);
-            })
-            .catch(err => { console.log(err) });
-    }, []);
+import { useDispatch } from "react-redux";
+import { deleteAction, updateAction } from "../actions/CartActions";
+const CartPage = ({ cart }) => {
+    const dispatcher = useDispatch();
+
     const onDelete = (id) => {
-        const newItems = items.filter((val) => val.id !== id);
-        setItems(newItems);
-        console.log("send request to backend");
+        dispatcher(deleteAction(id));
+
     }
     const onQuantityChange = (id, qty) => {
-        const newItems = items.map((val) => (id === val.id) ? { ...val, quantity: qty } : val);
-        setItems(newItems);
-        console.log("send request to backend");
+        dispatcher(updateAction({ id, qty }));
     }
 
     return (
@@ -34,7 +24,7 @@ const CartPage = () => {
 
 
                         {
-                            items.map((val, id) => {
+                            cart.map((val, id) => {
                                 return <CartItem item={val} key={val.id} onDelete={onDelete} onQuantityChange={onQuantityChange} />
                             })
                         }
