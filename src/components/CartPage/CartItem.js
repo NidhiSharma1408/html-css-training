@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 const CartItem = ({ item, onDelete, onQuantityChange }) => {
     let [quantity, setQuantity] = useState(item.quantity);
-    useEffect(() => onQuantityChange(item.id, quantity), [quantity]);
+    useEffect(() => {
+        onQuantityChange(item.id, quantity);
+    }, [quantity]);
     const handleDeleteClick = (id) => {
         onDelete(id);
     }
@@ -32,6 +34,7 @@ const CartItem = ({ item, onDelete, onQuantityChange }) => {
                             onClick={() => setQuantity(parseInt(quantity + 1))}>
                             <i className="fas fa-plus"></i>
                         </button>
+
                     </div>
                     <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                         <h5 className="mb-0">${item.price * quantity}</h5>

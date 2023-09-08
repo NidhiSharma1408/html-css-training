@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import BookTablePage from "./pages/BookTablePage";
-import ContactUsPage from "./pages/ContactUsPage";
-import CartPage from "./pages/CartPage";
-import MenuPage from "./pages/MenuPage";
-import ServicesPage from "./pages/ServicesPage";
+import HomePage from "./components/HomePage/HomePage";
+import AboutPage from "./components/AboutPage/AboutPage";
+import BookTablePage from "./components/BookTablePage/BookTablePage";
+import ContactUsPage from "./components/ContactUsPage/ContactUsPage";
+import CartPage from "./components/CartPage/CartPage";
+import MenuPage from "./components/MenuPage/MenuPage";
+import ServicesPage from "./components/ServicesPage/ServicesPage";
 import NavBar from "./components/NavBar";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";

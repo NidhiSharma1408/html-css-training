@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import image from "../img/hero.png";
+import image from "../../img/hero.png";
 const HomePage = () => {
     return (
         <div className="container-xxl py-5 bg-dark hero-header mb-5">

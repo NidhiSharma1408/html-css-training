@@ -1,7 +1,7 @@
-import about1 from "../img/about-1.jpg";
-import about2 from "../img/about-2.jpg";
-import about3 from "../img/about-3.jpg";
-import about4 from "../img/about-4.jpg";
+import about1 from "../../img/about-1.jpg";
+import about2 from "../../img/about-2.jpg";
+import about3 from "../../img/about-3.jpg";
+import about4 from "../../img/about-4.jpg";
 const RestaurantGallery = () => {
     return (
         <div className="col-lg-6">

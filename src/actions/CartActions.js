@@ -25,3 +25,10 @@ export const updateAction = (id, qty) => {
     }
     return update;
 }
+export const addAction = (item) => {
+    const add = (dispatch) => {
+        dispatch({ type: "ADD", payload: item })
+        console.log("send add request to backend");
+    }
+    return add;
+}

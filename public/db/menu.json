@@ -1,138 +1,156 @@
 [
   {
+    "id": 1,
     "name": "Burger",
     "image": "/img/menu-1.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 11,
     "veg": true,
     "type": "b"
   },
   {
+    "id": 2,
+
     "name": "Sandwitch",
     "image": "/img/menu-2.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 110,
     "veg": true,
     "type": "b"
   },
   {
+    "id": 3,
     "name": "Chicken Burger",
     "image": "/img/menu-3.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 112,
     "veg": false,
     "type": "b"
   },
   {
+    "id": 4,
     "name": "Chicken Sandwitch",
     "image": "/img/menu-4.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 14,
     "veg": false,
     "type": "b"
   },
   {
+    "id": 5,
     "name": "Chole Bhature",
     "image": "/img/menu-5.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 235,
     "veg": true,
     "type": "l"
   },
   {
+    "id": 6,
     "name": "Rajma Chawal",
     "image": "/img/menu-6.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 35,
     "veg": true,
     "type": "l"
   },
   {
+    "id": 7,
     "name": "Roti curry",
     "image": "/img/menu-7.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 535,
     "veg": true,
     "type": "l"
   },
   {
+    "id": 8,
     "name": "Dal Roti",
     "image": "/img/menu-8.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 351,
     "veg": true,
     "type": "d"
   },
   {
+    "id": 9,
     "name": "Chicken Curry",
     "image": "/img/menu-1.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 31,
     "veg": false,
     "type": "d"
   },
 
   {
+    "id": 10,
     "name": "Veg Burger",
     "image": "/img/menu-2.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 11,
     "veg": true,
     "type": "d"
   },
   {
+    "id": 11,
     "name": "Veg Sandwitch",
     "image": "/img/menu-3.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 21,
     "veg": true,
     "type": "d"
   },
   {
+    "id": 12,
     "name": "Chicken Burger",
     "image": "/img/menu-4.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 1431,
     "veg": false,
     "type": "d"
   },
   {
+    "id": 13,
     "name": "Chicken Sandwitch",
     "image": "/img/menu-5.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 3421,
     "veg": false,
     "type": "d"
   },
   {
+    "id": 14,
     "name": "Chicken Burger",
     "image": "/img/menu-6.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 21,
     "veg": false,
     "type": "l"
   },
   {
+    "id": 15,
     "name": "Chicken Sandwitch",
     "image": "/img/menu-7.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 241,
     "veg": false,
     "type": "l"
   },
   {
+    "id": 16,
     "name": "Veg Chowmin",
     "image": "/img/menu-8.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 111,
     "veg": true,
     "type": "b"
   },
   {
+    "id": 17,
     "name": "Non-veg Chowmin",
     "image": "/img/menu-1.jpg",
     "description": "Ipsum ipsum clita erat amet dolor justo diam",
-    "price": "$115",
+    "price": 531,
     "veg": true,
     "type": "b"
   }

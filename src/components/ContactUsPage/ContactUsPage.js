@@ -1,5 +1,5 @@
-import ContactForm from "../components/ContactForm";
-import GMap from "../components/GMap";
+import ContactForm from "./ContactForm";
+import GMap from "./GMap";
 
 const ContactUsPage = () => {
     return (

@@ -1,4 +1,4 @@
-import Service from "../components/Service";
+import Service from "./Service";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const ServicesPage = () => {

@@ -1,14 +1,10 @@
-const FilterMenu = ({ filter, onFilter }) => {
+const FilterMenu = ({ filter, setFilter }) => {
 
-    const handleClick = (filter) => {
-        console.log("clicking");
-        onFilter(filter);
-    }
     return (
         <ul className="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
 
             <li className="nav-item">
-                <button className={"btn d-flex align-items-center text-start mx-3 ms-0 pb-3" + ((filter === 'b') ? " active" : "")} onClick={() => handleClick("b")}>
+                <button className={"btn d-flex align-items-center text-start mx-3 ms-0 pb-3" + ((filter === 'b') ? " active" : "")} onClick={() => setFilter("b")}>
                     <i className="fa fa-coffee fa-2x text-primary"></i>
                     <div className="ps-3">
                         <small className="text-body">Popular</small>
@@ -17,7 +13,7 @@ const FilterMenu = ({ filter, onFilter }) => {
                 </button>
             </li>
             <li className="nav-item">
-                <button className={"btn d-flex align-items-center text-start mx-3 pb-3" + ((filter === 'l') ? " active" : "")} onClick={() => handleClick("l")}>
+                <button className={"btn d-flex align-items-center text-start mx-3 pb-3" + ((filter === 'l') ? " active" : "")} onClick={() => setFilter("l")}>
                     <i className="fa fa-hamburger fa-2x text-primary"></i>
                     <div className="ps-3">
                         <small className="text-body">Special</small>
@@ -26,7 +22,7 @@ const FilterMenu = ({ filter, onFilter }) => {
                 </button>
             </li>
             <li className="nav-item">
-                <button className={"btn d-flex align-items-center text-start mx-3 me-0 pb-3" + ((filter === 'd') ? " active" : "")} onClick={() => handleClick("d")}>
+                <button className={"btn d-flex align-items-center text-start mx-3 me-0 pb-3" + ((filter === 'd') ? " active" : "")} onClick={() => setFilter("d")}>
                     <i className="fa fa-utensils fa-2x text-primary"></i>
                     <div className="ps-3">
                         <small className="text-body">Lovely</small>

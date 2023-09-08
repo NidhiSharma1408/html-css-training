@@ -1,15 +1,14 @@
-import CartItem from "../components/CartItem";
+import CartItem from "./CartItem";
 import { useDispatch } from "react-redux";
-import { deleteAction, updateAction } from "../actions/CartActions";
+import { deleteAction, updateAction } from "../../actions/CartActions";
+
 const CartPage = ({ cart }) => {
     const dispatcher = useDispatch();
-
     const onDelete = (id) => {
         dispatcher(deleteAction(id));
-
     }
     const onQuantityChange = (id, qty) => {
-        dispatcher(updateAction({ id, qty }));
+        dispatcher(updateAction(id, qty));
     }
 
     return (
@@ -24,13 +23,13 @@ const CartPage = ({ cart }) => {
 
 
                         {
-                            cart.map((val, id) => {
+                            cart.map((val) => {
                                 return <CartItem item={val} key={val.id} onDelete={onDelete} onQuantityChange={onQuantityChange} />
                             })
                         }
 
                         <div className="card-body" style={{ textAlign: "center" }}>
-                            <button type="button" className="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                            <button type="button" className="btn btn-warning btn-block btn-lg">Pay $</button>
                         </div>
 
 

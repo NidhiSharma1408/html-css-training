@@ -1,5 +1,5 @@
-import RestaurantGallery from "../components/RestaurantGallery";
-import About from "../components/About";
+import RestaurantGallery from "./RestaurantGallery";
+import About from "./About";
 const AboutPage = () => {
     return (
         <div className="container-xxl py-5">
