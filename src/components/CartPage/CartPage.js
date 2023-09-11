@@ -1,18 +1,21 @@
 import CartItem from "./CartItem";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteAction, updateAction } from "../../actions/CartActions";
 
+import { selectTotal } from "../../reducers/CartReducer";
 const CartPage = ({ cart }) => {
-    const total = cart.reduce((sum, val) => sum + val.quantity * val.price, 0);
-    console.log("total is", total);
+    const total = useSelector(selectTotal);
     const dispatcher = useDispatch();
     const onDelete = (id) => {
         dispatcher(deleteAction(id));
     }
     const onQuantityChange = (id, qty) => {
+        if (qty === 0) {
+            dispatcher(deleteAction(id));
+            return;
+        }
         dispatcher(updateAction(id, qty));
     }
-
     return (
         <div className="container-xxl py-5">
             <div className="container h-100 py-5">
@@ -31,13 +34,14 @@ const CartPage = ({ cart }) => {
                         }
 
                         <div className="card-body" style={{ textAlign: "center" }}>
-                            <button type="button" className="btn btn-warning btn-block btn-lg">Pay ${total.toFixed(2)}</button>
+                            <button type="button" className="btn btn-warning btn-block btn-lg">Pay ${total}</button>
                         </div>
 
 
                     </div>
                 </div>
             </div>
+
         </div>
     );
 }

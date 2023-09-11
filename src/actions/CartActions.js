@@ -1,6 +1,7 @@
 import axios from "axios";
 export const fetchAction = () => {
     const fetchFunc = (dispatch) => {
+
         axios.get("/api/cart")
             .then((res) => {
                 dispatch({ type: "FETCH", payload: res.data });
@@ -16,6 +17,7 @@ export const deleteAction = (id) => {
         axios.delete("/api/cart/" + id)
             .then((res) => {
                 dispatch(fetchAction());
+
             })
             .catch((err) => {
                 console.log("ERROR:", err);
@@ -39,7 +41,6 @@ export const addAction = (item) => {
     const add = (dispatch) => {
         axios.post("/api/cart", item)
             .then((res) => {
-                console.log(res);
                 dispatch(fetchAction());
             })
             .catch((err) => {

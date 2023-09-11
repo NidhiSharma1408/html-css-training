@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addAction, deleteAction, updateAction } from "../../actions/CartActions";
+import { selectCartWithId, selectItemId } from "../../reducers/CartReducer";
 
 const MenuItem = ({ item }) => {
 
     const dispatcher = useDispatch();
-    let [cartItem] = useSelector((state) => {
-        return state.cart.filter((val) => (val.itemId === item._id));
-    })
+    let [cartItem] = useSelector(s => (selectCartWithId(s, item._id)));
     let [quantity, setQuantity] = useState((cartItem) ? cartItem.quantity : 0);
     useEffect(() => {
         if (!cartItem) {
@@ -27,7 +26,6 @@ const MenuItem = ({ item }) => {
                     dispatcher(updateAction(item._id, quantity));
             }
         }
-        console.log("quantity changed");
     }, [quantity]);
     let addToCart;
     if (quantity === 0) {

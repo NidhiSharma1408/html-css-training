@@ -4,6 +4,7 @@ const CartItem = ({ item, onDelete, onQuantityChange }) => {
     useEffect(() => {
         onQuantityChange(item.itemId, quantity);
     }, [quantity]);
+
     const handleDeleteClick = (id) => {
         onDelete(id);
     }

@@ -11,15 +11,13 @@ const ContactForm = () => {
             subject: form.subject.value,
             message: form.message.value
         }
-        console.log("data to sent to backend: ", data);
         axios.post("/api/contact", data)
             .then((res) => {
-                console.log(res);
                 event.target.reset();
                 setSuccess(true);
                 setTimeout(() => setSuccess(false), 3000);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log("ERROR: ", err));
     }
     return (
         <form onSubmit={handleSubmit}>

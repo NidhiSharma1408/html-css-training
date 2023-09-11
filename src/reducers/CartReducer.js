@@ -1,33 +1,23 @@
+import { createSelector } from "@reduxjs/toolkit";
+
 const initialState = {
     cart: [],
 }
-const CartReducer = (state = initialState, action) => {
 
-    if (action.type === "DELETE") {
-        console.log("delete");
-        const id = action.payload;
-        let cart = [...state.cart];
-        cart = cart.filter((val) => val.id !== id);
-        return { ...state, cart };
-    }
-    if (action.type === "UPDATE") {
-        console.log("update");
-        let cart = [...state.cart];
-        const id = action.payload.id;
-        const qty = action.payload.qty;
-        cart = cart.map((val) => ((id === val.id) ? { ...val, quantity: qty } : val));
-        return { ...state, cart };
-    }
+
+export const selectCart = state => state.cart;
+export const selectItemId = (state, itemId) => itemId;
+export const selectTotal = createSelector([selectCart], (cart) => cart.reduce((sum, val) => sum + val.quantity * val.price, 0).toFixed(2))
+export const selectCartWithId = createSelector([selectCart, selectItemId], (cart, itemId) => {
+    const cartItem = cart.filter((val) => (val.itemId === itemId));
+    return cartItem;
+})
+
+const CartReducer = (state = initialState, action) => {
     if (action.type === "FETCH") {
-        console.log("fetch");
         let newCart = action.payload;
         let newState = { ...state, cart: [...newCart] };
         return newState;
-    }
-    if (action.type === "ADD") {
-        console.log("add");
-        const cart = [...state.cart, action.payload];
-        return { ...state, cart };
     }
     return state;
 }

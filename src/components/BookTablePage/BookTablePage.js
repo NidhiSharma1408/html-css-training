@@ -1,4 +1,3 @@
-// TODO: remove video error
 import axios from "axios";
 import { useState } from "react";
 const BookTablePage = () => {
@@ -14,22 +13,20 @@ const BookTablePage = () => {
             people: form.people.value,
             message: form.message.value
         }
-        console.log("sending data to backend...", data);
         axios.post("/api/booking", data)
             .then((res) => {
-                console.log(res);
                 event.target.reset();
                 setSuccess(true);
                 setTimeout(() => setSuccess(false), 3000);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log("ERROR: ", err));
     }
     return (
         <div className="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
             <div className="row g-0">
                 <div className="col-md-6">
                     <div className="video">
-                        <button type="button" className="btn-play">
+                        <button type="button" className="btn-play" >
                             <span></span>
                         </button>
                     </div>
