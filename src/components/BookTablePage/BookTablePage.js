@@ -1,5 +1,9 @@
 // TODO: remove video error
+import axios from "axios";
+import { useState } from "react";
 const BookTablePage = () => {
+    let [success, setSuccess] = useState(false);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -11,6 +15,14 @@ const BookTablePage = () => {
             message: form.message.value
         }
         console.log("sending data to backend...", data);
+        axios.post("/booking", data)
+            .then((res) => {
+                console.log(res);
+                event.target.reset();
+                setSuccess(true);
+                setTimeout(() => setSuccess(false), 3000);
+            })
+            .catch((err) => console.log(err));
     }
     return (
         <div className="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
@@ -65,7 +77,9 @@ const BookTablePage = () => {
                             </div>
                         </form>
                     </div>
+
                 </div>
+                {(success) ? <div className="row g-0 bg-dark "><div className="col-md-6"></div><div className="col-md-6"><h1 className="text-center" style={{ color: "white" }}>Booking Done!</h1></div></div> : ""}
             </div>
         </div>
     );

@@ -22,7 +22,7 @@ const SearchMenu = ({ setQuery, setVegOnly, vegOnly, sortBy, setSortBy }) => {
                     <input onChange={() => setVegOnly(!vegOnly)} name="veg-only" type="checkbox" className="form-check-input btn-check" id="veg-only" />
                     <label htmlFor="veg-only" className={"form-check-label btn " + ((vegOnly) ? "btn-success" : "btn-outline-success")} >
                         Only Veg
-                        {(vegOnly) ? <i class=" fa-lg bi bi-x"></i> : ""}
+                        {(vegOnly) ? <i className=" fa-lg bi bi-x"></i> : ""}
                     </label>
                 </div>
                 <div className="form-check d-inline-flex" >
@@ -44,7 +44,7 @@ const SearchMenu = ({ setQuery, setVegOnly, vegOnly, sortBy, setSortBy }) => {
                 </div>
                 <label >
                     Sort By:
-                    <select class="form-select">
+                    <select className="form-select">
                         <option>Name</option>
                         <option>Price</option>
                     </select>

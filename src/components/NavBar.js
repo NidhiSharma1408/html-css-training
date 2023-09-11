@@ -12,7 +12,7 @@ const NavBar = ({ cart }) => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto py-0 pe-4">
-                        <NavLink to="/" className="nav-item nav-link" activeClassName="active">Home</NavLink>
+                        <NavLink to="/" className="nav-item nav-link" activeclassname="active">Home</NavLink>
                         <NavLink to="/about" className="nav-item nav-link">About</NavLink>
                         <NavLink to="/service" className="nav-item nav-link">Service</NavLink>
                         <NavLink to="/menu" className="nav-item nav-link">Menu</NavLink>

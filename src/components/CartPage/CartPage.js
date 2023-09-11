@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { deleteAction, updateAction } from "../../actions/CartActions";
 
 const CartPage = ({ cart }) => {
+    const total = cart.reduce((sum, val) => sum + val.quantity * val.price, 0);
+    console.log("total is", total);
     const dispatcher = useDispatch();
     const onDelete = (id) => {
         dispatcher(deleteAction(id));
@@ -29,7 +31,7 @@ const CartPage = ({ cart }) => {
                         }
 
                         <div className="card-body" style={{ textAlign: "center" }}>
-                            <button type="button" className="btn btn-warning btn-block btn-lg">Pay $</button>
+                            <button type="button" className="btn btn-warning btn-block btn-lg">Pay ${total}</button>
                         </div>
 
 

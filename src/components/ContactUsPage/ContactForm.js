@@ -1,4 +1,7 @@
+import axios from "axios";
+import { useState } from "react";
 const ContactForm = () => {
+    let [success, setSuccess] = useState(false);
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -9,6 +12,14 @@ const ContactForm = () => {
             message: form.message.value
         }
         console.log("data to sent to backend: ", data);
+        axios.post("/contact", data)
+            .then((res) => {
+                console.log(res);
+                event.target.reset();
+                setSuccess(true);
+                setTimeout(() => setSuccess(false), 3000);
+            })
+            .catch((err) => console.log(err));
     }
     return (
         <form onSubmit={handleSubmit}>
@@ -66,7 +77,7 @@ const ContactForm = () => {
                     </div>
                 </div>
                 <div className="col-12">
-                    <button className="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                    <button className={"btn btn-primary w-100 py-3" + ((success) ? "disabled" : "")} type="submit">{(success) ? "Enquiry Request Sent!" : "Send Message"}</button>
                 </div>
             </div>
         </form>

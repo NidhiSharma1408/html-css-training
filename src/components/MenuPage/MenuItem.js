@@ -28,7 +28,7 @@ const MenuItem = ({ item }) => {
     }, [quantity]);
     let addToCart;
     if (quantity === 0) {
-        addToCart = (<button className="btn btn-link" onClick={() => setQuantity(1)}><i class="bi bi-cart-plus fa-lg"></i></button>)
+        addToCart = (<button className="btn btn-link" onClick={() => setQuantity(1)}><i className="bi bi-cart-plus fa-lg"></i></button>)
     } else {
         addToCart = (
             <div className="d-flex align-items-center">
