@@ -12,7 +12,7 @@ const ContactForm = () => {
             message: form.message.value
         }
         console.log("data to sent to backend: ", data);
-        axios.post("/contact", data)
+        axios.post("/api/contact", data)
             .then((res) => {
                 console.log(res);
                 event.target.reset();

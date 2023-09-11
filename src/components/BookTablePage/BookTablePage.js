@@ -15,7 +15,7 @@ const BookTablePage = () => {
             message: form.message.value
         }
         console.log("sending data to backend...", data);
-        axios.post("/booking", data)
+        axios.post("/api/booking", data)
             .then((res) => {
                 console.log(res);
                 event.target.reset();
