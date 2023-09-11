@@ -4,7 +4,7 @@ import axios from "axios";
 const ServicesPage = () => {
     let [services, setServices] = useState([]);
     useEffect(() => {
-        axios.get("/services")
+        axios.get("/api/services")
             .then((res) => { setServices(res.data) })
             .catch((err) => { throw err });
     }, []);
