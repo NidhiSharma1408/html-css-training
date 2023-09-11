@@ -15,7 +15,7 @@ const PORT_NUMBER = argv.port || 3000;
 
 //application setup related things
 const app = express();
-app.use(helmet());
+// app.use(helmet());
 
 app.use(morgan("dev"));
 
