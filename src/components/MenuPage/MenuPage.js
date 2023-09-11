@@ -12,10 +12,12 @@ const MenuPage = () => {
     let [vegOnly, setVegOnly] = useState(false);
     let [sortBy, setSortBy] = useState("none");
     useEffect(() => {
-        axios.get("db/menu.json")
+        axios.get("/menu")
             .then((res => {
                 allItems = res.data;
+                console.log(allItems);
                 setDisplayItems(res.data);
+
             }))
             .catch((err) => console.log(err));
     }, []);
@@ -72,7 +74,7 @@ const MenuPage = () => {
                         <div className="row g-4">
                             {
                                 displayItems.map((val, id) => {
-                                    return <MenuItem item={val} key={id} />
+                                    return <MenuItem item={val} key={val._id} />
                                 })
                             }
                         </div>

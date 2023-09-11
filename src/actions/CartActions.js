@@ -1,7 +1,7 @@
 import axios from "axios";
 export const fetchAction = () => {
     const fetchFunc = (dispatch) => {
-        axios.get("/db/cart.json")
+        axios.get("/cart")
             .then((res) => {
                 dispatch({ type: "FETCH", payload: res.data });
             })
@@ -13,22 +13,38 @@ export const fetchAction = () => {
 }
 export const deleteAction = (id) => {
     const del = (dispatch) => {
-        dispatch({ type: "DELETE", payload: id })
-        console.log("send request to backend");
+        axios.delete("/cart/" + id)
+            .then((res) => {
+                dispatch(fetchAction());
+            })
+            .catch((err) => {
+                console.log("ERROR:", err);
+            })
     }
     return del;
 }
 export const updateAction = (id, qty) => {
     const update = (dispatch) => {
-        dispatch({ type: "UPDATE", payload: { id, qty } })
-        console.log("send request to backend");
+        axios.put("/cart/" + id, { quantity: qty })
+            .then((res) => {
+                dispatch(fetchAction());
+            })
+            .catch((err) => {
+                console.log("ERROR:", err);
+            })
     }
     return update;
 }
 export const addAction = (item) => {
     const add = (dispatch) => {
-        dispatch({ type: "ADD", payload: item })
-        console.log("send add request to backend");
+        axios.post("/cart", item)
+            .then((res) => {
+                console.log(res);
+                dispatch(fetchAction());
+            })
+            .catch((err) => {
+                console.log("ERROR:", err);
+            })
     }
     return add;
 }

@@ -8,7 +8,9 @@ const morgan = require("morgan");
 const db = require("./db");
 const bookTableRouter = require("./routes/bookTable");
 const contactUsRouter = require("./routes/contactUs");
-
+const cartRouter = require("./routes/cart");
+const menuRouter = require("./routes/menu");
+const servicesRouter = require("./routes/services");
 const PORT_NUMBER = argv.port || 3000;
 
 //application setup related things
@@ -23,7 +25,9 @@ app.use(express.urlencoded({ extended: true })); // for parsing url encoded bodi
 // app routes defined here
 app.use("/booking", bookTableRouter);
 app.use("/contact", contactUsRouter);
-
+app.use("/cart", cartRouter);
+app.use("/menu", menuRouter);
+app.use("/services", servicesRouter);
 // start running application 
 app.listen(PORT_NUMBER, (err) => {
     console.log("Attempting to start server...");

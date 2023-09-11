@@ -26,12 +26,12 @@ const CartPage = ({ cart }) => {
 
                         {
                             cart.map((val) => {
-                                return <CartItem item={val} key={val.id} onDelete={onDelete} onQuantityChange={onQuantityChange} />
+                                return <CartItem item={val} key={val._id} onDelete={onDelete} onQuantityChange={onQuantityChange} />
                             })
                         }
 
                         <div className="card-body" style={{ textAlign: "center" }}>
-                            <button type="button" className="btn btn-warning btn-block btn-lg">Pay ${total}</button>
+                            <button type="button" className="btn btn-warning btn-block btn-lg">Pay ${total.toFixed(2)}</button>
                         </div>
 
 

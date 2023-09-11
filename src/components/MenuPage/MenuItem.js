@@ -6,22 +6,25 @@ const MenuItem = ({ item }) => {
 
     const dispatcher = useDispatch();
     let [cartItem] = useSelector((state) => {
-        return state.cart.filter((val) => (val.id === item.id));
+        return state.cart.filter((val) => (val.itemId === item._id));
     })
     let [quantity, setQuantity] = useState((cartItem) ? cartItem.quantity : 0);
     useEffect(() => {
         if (!cartItem) {
-            if (quantity !== 0)
-                dispatcher(addAction({ ...item, quantity }));
+            if (quantity !== 0) {
+                const newCartItem = { ...item, itemId: item._id, quantity };
+                delete newCartItem._id;
+                dispatcher(addAction({ ...newCartItem, itemId: item._id, quantity }));
+            }
             else return;
         }
         else {
             if (cartItem.quantity === quantity) { return; }
             else {
                 if (quantity === 0)
-                    dispatcher(deleteAction(item.id));
+                    dispatcher(deleteAction(item._id));
                 else
-                    dispatcher(updateAction(item.id, quantity));
+                    dispatcher(updateAction(item._id, quantity));
             }
         }
         console.log("quantity changed");
@@ -63,7 +66,7 @@ const MenuItem = ({ item }) => {
                     <h5 className="d-flex justify-content-between border-bottom pb-2">
                         <span>{item.name}</span>
 
-                        <span className="text-primary">${item.price}</span>
+                        <span className="text-primary">${(item.price).toFixed(2)}</span>
                     </h5>
                     <small className={((item.veg) ? "text-success" : "text-danger") + " fst-italic"}>{item.description}  {(item.veg) ? (<i className="fas fa-leaf"></i>) : (<i className="fas fa-drumstick-bite"></i>)}</small>
                 </div>

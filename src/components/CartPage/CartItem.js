@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 const CartItem = ({ item, onDelete, onQuantityChange }) => {
     let [quantity, setQuantity] = useState(item.quantity);
     useEffect(() => {
-        onQuantityChange(item.id, quantity);
+        onQuantityChange(item.itemId, quantity);
     }, [quantity]);
     const handleDeleteClick = (id) => {
         onDelete(id);
@@ -37,10 +37,10 @@ const CartItem = ({ item, onDelete, onQuantityChange }) => {
 
                     </div>
                     <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h5 className="mb-0">${item.price * quantity}</h5>
+                        <h5 className="mb-0">${(item.price * quantity).toFixed(2)}</h5>
                     </div>
                     <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <button onClick={() => handleDeleteClick(item.id)} className="btn text-danger"><i className="fas fa-trash fa-lg"></i></button>
+                        <button onClick={() => handleDeleteClick(item.itemId)} className="btn text-danger"><i className="fas fa-trash fa-lg"></i></button>
                     </div>
                 </div>
             </div>

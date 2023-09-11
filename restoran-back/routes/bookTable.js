@@ -11,4 +11,13 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.get("/", async (req, res) => {
+    try {
+        const data = await repo.getAllBookings();
+        return res.json(data);
+    }
+    catch (e) {
+        return res.status(400).json(e);
+    }
+})
 module.exports = router;

@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const repo = require("../repos/contactUs");
+const repo = require("../repos/menu");
 
 router.post("/", async (req, res) => {
     try {
         console.log(req.body);
-        const data = await repo.addContactRequest(req.body);
+        const data = await repo.addMenu(req.body);
         return res.status(201).json(data);
     }
     catch (e) {
@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
     try {
-        const data = await repo.getAllContactRequests();
+        const data = await repo.getAllMenus();
         return res.json(data);
     }
     catch (e) {
