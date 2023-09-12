@@ -1,6 +1,6 @@
 import MenuItem from "./MenuItem";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../../http";
 import SearchMenu from "./SearchMenu";
 import FilterMenu from "./FilterMenu";
 import Spinner from "../Spinner";
@@ -13,7 +13,7 @@ const MenuPage = () => {
     let [vegOnly, setVegOnly] = useState(false);
     let [sortBy, setSortBy] = useState("none");
     useEffect(() => {
-        axios.get("/api/menu")
+        axios.get("/menu")
             .then((res => {
                 allItems = res.data;
                 setDisplayItems(res.data);

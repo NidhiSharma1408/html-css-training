@@ -1,11 +1,11 @@
 import Service from "./Service";
 import Spinner from "../Spinner";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../../http";
 const ServicesPage = () => {
     let [services, setServices] = useState([]);
     useEffect(() => {
-        axios.get("/api/services")
+        axios.get("/services")
             .then((res) => { setServices(res.data) })
             .catch((err) => { throw err });
     }, []);

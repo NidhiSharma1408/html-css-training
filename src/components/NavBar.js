@@ -17,6 +17,7 @@ const NavBar = ({ cart }) => {
                         <NavLink to="/service" className="nav-item nav-link">Service</NavLink>
                         <NavLink to="/menu" className="nav-item nav-link">Menu</NavLink>
                         <NavLink to="/contact" className="nav-item nav-link">Contact</NavLink>
+                        <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                         <NavLink to="/cart" className="nav-item nav-link">
                             <div className="wrapper">
                                 <i className="fa fa-2x text-primary">&#xf07a;</i>

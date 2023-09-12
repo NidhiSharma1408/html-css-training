@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../http";
 import { useEffect, useState } from "react";
 import Spinner from "../Spinner";
 const Bookings = () => {
@@ -6,7 +6,7 @@ const Bookings = () => {
     let [isloading, setisLoading] = useState("false");
     useEffect(() => {
         setisLoading(true);
-        axios.get("/api/booking")
+        axios.get("/booking")
             .then((res) => {
                 setBookings(res.data);
                 setisLoading(false);

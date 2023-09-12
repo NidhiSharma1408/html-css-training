@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from "../http";
 export const fetchAction = () => {
     const fetchFunc = (dispatch) => {
 
-        axios.get("/api/cart")
+        axios.get("/cart")
             .then((res) => {
                 dispatch({ type: "FETCH", payload: res.data });
             })
@@ -14,7 +14,7 @@ export const fetchAction = () => {
 }
 export const deleteAction = (id) => {
     const del = (dispatch) => {
-        axios.delete("/api/cart/" + id)
+        axios.delete("/cart/" + id)
             .then((res) => {
                 dispatch(fetchAction());
 
@@ -27,7 +27,7 @@ export const deleteAction = (id) => {
 }
 export const updateAction = (id, qty) => {
     const update = (dispatch) => {
-        axios.put("/api/cart/" + id, { quantity: qty })
+        axios.put("/cart/" + id, { quantity: qty })
             .then((res) => {
                 dispatch(fetchAction());
             })
@@ -39,7 +39,7 @@ export const updateAction = (id, qty) => {
 }
 export const addAction = (item) => {
     const add = (dispatch) => {
-        axios.post("/api/cart", item)
+        axios.post("/cart", item)
             .then((res) => {
                 dispatch(fetchAction());
             })

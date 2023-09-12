@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../http";
 import { useEffect, useState } from "react";
 import Spinner from "../Spinner";
 const Contacts = () => {
@@ -6,7 +6,7 @@ const Contacts = () => {
     let [isloading, setisLoading] = useState("false");
     useEffect(() => {
         setisLoading(true);
-        axios.get("/api/contact")
+        axios.get("/contact")
             .then((res) => {
                 setContacts(res.data);
                 setisLoading(false);

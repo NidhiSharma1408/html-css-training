@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../http";
 import { useState } from "react";
 const ContactForm = () => {
     let [success, setSuccess] = useState(false);
@@ -11,7 +11,7 @@ const ContactForm = () => {
             subject: form.subject.value,
             message: form.message.value
         }
-        axios.post("/api/contact", data)
+        axios.post("/contact", data)
             .then((res) => {
                 event.target.reset();
                 setSuccess(true);

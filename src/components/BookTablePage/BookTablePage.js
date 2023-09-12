@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../http";
 import { useState } from "react";
 const BookTablePage = () => {
     let [success, setSuccess] = useState(false);
@@ -13,7 +13,7 @@ const BookTablePage = () => {
             people: form.people.value,
             message: form.message.value
         }
-        axios.post("/api/booking", data)
+        axios.post("/booking", data)
             .then((res) => {
                 event.target.reset();
                 setSuccess(true);
