@@ -52,7 +52,7 @@ const BookTablePage = () => {
                                 <div className="col-md-6">
 
                                     <div className="form-floating date" id="date3" >
-                                        <input required={true} name="datetime" type="datetime-local" className="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" />
+                                        <input required={true} name="datetime" type="text" onFocus={(e) => (e.target.type = 'datetime-local')} className="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" />
                                         <label htmlFor="date3">Date & Time</label>
                                     </div>
                                 </div>
